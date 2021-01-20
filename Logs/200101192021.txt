@@ -1,0 +1,21 @@
+ Robot program starting 
+java.io.IOException SparkMaxDriver could not be loaded from path or an embedded resource.
+attempted to load for platform linuxathena
+Last Load Error
+usrlocalfrcthird-partyliblibSparkMaxDriver.so libwpimath.so cannot open shared object file No such file or directory
+at edu.wpi.first.wpiutil.RuntimeLoader.loadLibrary(RuntimeLoader.java84)
+at com.revrobotics.jni.RevJNIWrapper.clinit(RevJNIWrapper.java43)
+at com.revrobotics.CANSparkMaxLowLevel.clinit(CANSparkMaxLowLevel.java38)
+at frc.robot.subsystems.LauncherPIDSubsystem.init(LauncherPIDSubsystem.java35)
+at frc.robot.RobotContainer.clinit(RobotContainer.java47)
+at frc.robot.Robot.robotInit(Robot.java36)
+at edu.wpi.first.wpilibj.TimedRobot.startCompetition(TimedRobot.java64)
+at edu.wpi.first.wpilibj.RobotBase.runRobot(RobotBase.java276)
+at edu.wpi.first.wpilibj.RobotBase.startRobot(RobotBase.java348)
+at frc.robot.Main.main(Main.java27)
+[phoenix] Library shutdown cleanly
+NT server client CONNECTED 10.21.30.11 port 54992
+NT server client CONNECTED 10.21.30.139 port 58570
+[phoenix-diagnostics] Server shutdown cleanly. (dur100)
+pure virtual method called
+terminate called without an active exception
