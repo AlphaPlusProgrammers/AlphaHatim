@@ -13,6 +13,9 @@ import frc.robot.RobotContainer;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class ControlPanelSubsystem extends SubsystemBase {
@@ -27,11 +30,25 @@ public class ControlPanelSubsystem extends SubsystemBase {
 
     private int i;
 
+    private CANSparkMax launcherMotorMaster;
+    private CANSparkMax launcherMoterSlave;
+
+    public double finalSpeed;
+    public boolean active;
+
     public ControlPanelSubsystem() {
 
         controlPanelMotor = new TalonSRX(12);
 
         controlPanelSol = new Solenoid(0);
+
+        
+        launcherMoterSlave = new CANSparkMax(13, MotorType.kBrushless);
+        launcherMotorMaster = new CANSparkMax(14, MotorType.kBrushless);
+
+        finalSpeed = 0;
+        active = false;
+
     }
 
     @Override

@@ -7,33 +7,15 @@
 
 package frc.robot;
 
+import java.security.PrivilegedActionException;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.*;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.LauncherCommand;
-import frc.robot.commands.AimingCommand;
-import frc.robot.commands.AimingCommandDown;
-import frc.robot.commands.ChangeHandlerPositionCommand;
-import frc.robot.commands.ClimbMotorCommand;
-import frc.robot.commands.ClimbSolenoidCom;
-import frc.robot.commands.DisengageStopBallSolenoid;
-import frc.robot.commands.DriveSwerveCommand;
-import frc.robot.commands.FlopIntakeInCommand;
-import frc.robot.commands.FlopIntakeOutCommand;
-import frc.robot.commands.HandlerBooleanCommand;
-import frc.robot.commands.HandlerMotorCommand;
-import frc.robot.commands.PointTurnCommand;
-import frc.robot.commands.StrafeEasyModeCommand;
-import frc.robot.commands.TargetWithLimelightCommand;
-import frc.robot.subsystems.AimingSubsystem;
-import frc.robot.subsystems.ClimbingSubsystem;
-import frc.robot.subsystems.ControlPanelSubsystem;
-import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.subsystems.LauncherPIDSubsystem;
-import frc.robot.subsystems.SensorsSubsystem;
-import frc.robot.subsystems.DriveTrainSubsystem;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -43,17 +25,18 @@ import frc.robot.subsystems.DriveTrainSubsystem;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  
+  //private final LauncherMotorPID launcherMotorPID = new LauncherMotorPID();
   public static final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
-  public static final LauncherPIDSubsystem launcherPIDSubsystem = new LauncherPIDSubsystem();
   public static final ClimbingSubsystem climbingSubsystem = new ClimbingSubsystem();
   public static final ControlPanelSubsystem controlPanelSubsystem = new ControlPanelSubsystem();
   public static final SensorsSubsystem sensorsSubsystem = new SensorsSubsystem();
   public static final DriveTrainSubsystem driveTrainSubsystem = new DriveTrainSubsystem();
   public static final AimingSubsystem aimingSubsystem = new AimingSubsystem();
 
+  //private final HeresTheWindUp heresTheWindUp = new HeresTheWindUp(launcherMotorPID);
   private final AimingCommandDown aimingCommandDown = new AimingCommandDown(aimingSubsystem);
   private final AimingCommand aimingCommand = new AimingCommand(aimingSubsystem);
-  private final LauncherCommand launcherCommand = new LauncherCommand(launcherPIDSubsystem);
   private final DriveSwerveCommand driveSwerveCommand = new DriveSwerveCommand(driveTrainSubsystem);
   private final StrafeEasyModeCommand strafeEasyModeCommand = new StrafeEasyModeCommand(driveTrainSubsystem);
   private final PointTurnCommand pointTurnCommand = new PointTurnCommand(driveTrainSubsystem);
@@ -132,7 +115,7 @@ public class RobotContainer {
     flopIntakeInButton.whenPressed(flopIntakeInCommand, true);
     flopIntakeOutButton.whenPressed(flopIntakeOutCommand, true);
 
-    windLauncherUpButton.whenPressed(launcherCommand, true);
+    //windLauncherUpButton.whenPressed(launcherCommand, true);
 
     raiseLauncherButton.whenPressed(aimingCommand, true);
     lowerLauncherButton.whenPressed(aimingCommandDown, true);
@@ -180,7 +163,7 @@ public class RobotContainer {
     return windLauncherUpButton.get();
   }
 
-  public static boolean launcherStopButVal(){
+  public static boolean stopWindin(){
     return windLauncherDownButton.get();
   }
 
